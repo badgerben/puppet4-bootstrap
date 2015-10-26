@@ -2,7 +2,7 @@
 # Install Puppet 4 on RHEL/CentOS 6
 
 # URL to Puppet Labs Puppet Collection package
-REPO_URL="http://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm"
+REPO_URL="https://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm"
 
 # Install repository
 echo -n "Installing Puppet Collection Release Package..."
