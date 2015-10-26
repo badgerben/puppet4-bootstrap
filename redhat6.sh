@@ -6,7 +6,7 @@ REPO_URL="https://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm"
 
 # Install repository
 echo -n "Installing Puppet Collection Release Package..."
-yum -d 0 -e 0 -q -y install $REPO_URL
+yum -y install $REPO_URL > /dev/null 2>&1
 RET=$?
 if [ $RET -eq 0 ]; then
 	echo "Done"
@@ -17,7 +17,7 @@ fi
 
 # Install agent
 echo -n "Installing Puppet Agent..."
-yum -d 0 -e 0 -q -y install puppet-agent
+yum -y install puppet-agent > /dev/null 2>&1
 RET=$?
 if [ $RET -eq 0 ]; then
 	echo "Done"
