@@ -4,6 +4,14 @@
 # URL to Puppet Labs Puppet Collection package
 REPO_URL="https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm"
 
+# Check if Puppet is installed
+rpm -q puppet-agent > /dev/null 2>&1
+RET=$?
+if [ $RET -eq 0 ]; then
+	echo "Puppet is already installed"
+	exit $RET
+fi
+
 # Install repository
 echo -n "Installing Puppet Collection Release Package..."
 yum -y install $REPO_URL > /dev/null 2>&1
