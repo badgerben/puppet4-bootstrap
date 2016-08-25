@@ -1,6 +1,14 @@
 #!/bin/bash
 # Install Puppet 4 on RHEL/CentOS 7
 
+# Set default version to latest
+VERSION=""
+
+# Set VERSION if argument supplied
+if [ ! -z "$1" ]; then
+  VERSION="-$1"
+fi
+
 # URL to Puppet Labs Puppet Collection package
 REPO_URL="https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm"
 
@@ -25,7 +33,7 @@ fi
 
 # Install agent
 echo -n "Installing Puppet Agent..."
-yum -y install puppet-agent > /dev/null 2>&1
+yum -y install puppet-agent$VERSION > /dev/null 2>&1
 RET=$?
 if [ $RET -eq 0 ]; then
 	echo "Done"
